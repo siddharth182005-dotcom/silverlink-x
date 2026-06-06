@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="theme-color" content="#000510" />
+    <meta name="description" content="SilverLink X — Antigravity Banking Intelligence" />
+    <title>SilverLink X</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body, #root { height: 100%; margin: 0; padding: 0; }
+      body {
+        font-family: 'Space Grotesk', system-ui, sans-serif;
+        background: #000510;
+        -webkit-font-smoothing: antialiased;
+        color: #e2e8f0;
+      }
+      ::-webkit-scrollbar { width: 2px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: rgba(0,255,200,0.2); border-radius: 2px; }
+      ::selection { background: rgba(0,255,200,0.25); color: #fff; }
+
+      /* Global antigravity design tokens */
+      :root {
+        --neon:      #00ffc8;
+        --neon2:     #00d4aa;
+        --neon-dim:  rgba(0,255,200,0.15);
+        --neon-glow: 0 0 20px rgba(0,255,200,0.3), 0 0 40px rgba(0,255,200,0.1);
+        --gold:      #f5c842;
+        --gold2:     #ffd96e;
+        --gold-glow: 0 0 20px rgba(245,200,66,0.3);
+        --purple:    #a855f7;
+        --blue-x:    #3b82f6;
+        --red-x:     #f43f5e;
+        --bg0:       #000510;
+        --bg1:       #060d1e;
+        --bg2:       #0a1628;
+        --bg3:       #0f1f35;
+        --bg4:       #162340;
+        --border-x:  rgba(0,255,200,0.12);
+        --border-2:  rgba(0,255,200,0.06);
+        --text-1:    #f0f4ff;
+        --text-2:    #94a3b8;
+        --text-3:    #475569;
+        --grid-line: rgba(0,255,200,0.04);
+        --font-mono: 'Space Mono', monospace;
+        --font-head: 'Syne', sans-serif;
+      }
+
+      /* Animated grid background */
+      body::before {
+        content: '';
+        position: fixed; inset: 0; z-index: 0;
+        background-image:
+          linear-gradient(var(--grid-line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+        background-size: 48px 48px;
+        pointer-events: none;
+        animation: gridDrift 30s linear infinite;
+      }
+      @keyframes gridDrift {
+        0%   { background-position: 0 0; }
+        100% { background-position: 48px 48px; }
+      }
+
+      /* Scanline overlay */
+      body::after {
+        content: '';
+        position: fixed; inset: 0; z-index: 0;
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0,0,0,0.03) 2px,
+          rgba(0,0,0,0.03) 4px
+        );
+        pointer-events: none;
+      }
+
+      #root { position: relative; z-index: 1; }
+
+      /* Neon glow utilities */
+      .neon-text { color: var(--neon); text-shadow: 0 0 8px rgba(0,255,200,0.6), 0 0 20px rgba(0,255,200,0.3); }
+      .gold-text  { color: var(--gold); text-shadow: 0 0 8px rgba(245,200,66,0.5); }
+
+      /* Glassy surface base */
+      .glass {
+        background: linear-gradient(135deg, rgba(10,22,40,0.9) 0%, rgba(6,13,30,0.95) 100%);
+        border: 1px solid var(--border-x);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+
+      /* Antigravity card */
+      .ag-card {
+        background: linear-gradient(135deg, rgba(15,31,53,0.95) 0%, rgba(6,13,30,0.98) 100%);
+        border: 1px solid var(--border-x);
+        border-radius: 16px;
+        position: relative;
+        overflow: hidden;
+        backdrop-filter: blur(20px);
+      }
+      .ag-card::before {
+        content: '';
+        position: absolute; top: 0; left: 0; right: 0; height: 1px;
+        background: linear-gradient(90deg, transparent, var(--neon), transparent);
+        opacity: 0.6;
+      }
+
+      /* Corner brackets */
+      .ag-card::after {
+        content: '';
+        position: absolute; bottom: 0; right: 0;
+        width: 20px; height: 20px;
+        border-bottom: 1px solid var(--neon);
+        border-right:  1px solid var(--neon);
+        opacity: 0.4;
+        border-radius: 0 0 4px 0;
+      }
+
+      /* Button base */
+      .btn-x {
+        display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+        padding: 8px 16px; border-radius: 8px;
+        font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 500;
+        cursor: pointer; transition: all 0.2s; border: 1px solid var(--border-x);
+        background: transparent; color: var(--text-2); letter-spacing: 0.03em;
+      }
+      .btn-x:hover { border-color: var(--neon); color: var(--neon); background: var(--neon-dim); }
+
+      .btn-neon {
+        background: linear-gradient(135deg, rgba(0,255,200,0.15) 0%, rgba(0,212,170,0.1) 100%);
+        border: 1px solid var(--neon);
+        color: var(--neon);
+        box-shadow: 0 0 12px rgba(0,255,200,0.15);
+      }
+      .btn-neon:hover { box-shadow: var(--neon-glow); background: rgba(0,255,200,0.2); }
+
+      /* Input base */
+      input.inp-x, select.inp-x {
+        background: rgba(10,22,40,0.8);
+        border: 1px solid var(--border-x);
+        border-radius: 8px;
+        color: var(--text-1); font-family: 'Space Grotesk', sans-serif; font-size: 14px;
+        padding: 10px 14px; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+        width: 100%;
+      }
+      input.inp-x:focus, select.inp-x:focus {
+        border-color: var(--neon);
+        box-shadow: 0 0 0 3px rgba(0,255,200,0.08), 0 0 16px rgba(0,255,200,0.1);
+      }
+      input.inp-x::placeholder { color: var(--text-3); }
+
+      /* Tags / chips */
+      .tag-x {
+        display: inline-flex; align-items: center; gap: 4px;
+        padding: 2px 10px; border-radius: 20px; font-size: 10px; font-weight: 600;
+        letter-spacing: 0.06em; text-transform: uppercase;
+        border: 1px solid; white-space: nowrap;
+      }
+      .tag-neon { background: rgba(0,255,200,0.08); color: var(--neon); border-color: rgba(0,255,200,0.3); }
+      .tag-gold  { background: rgba(245,200,66,0.08); color: var(--gold); border-color: rgba(245,200,66,0.3); }
+      .tag-red   { background: rgba(244,63,94,0.08); color: #f43f5e; border-color: rgba(244,63,94,0.3); }
+      .tag-purple{ background: rgba(168,85,247,0.08); color: var(--purple); border-color: rgba(168,85,247,0.3); }
+      .tag-blue  { background: rgba(59,130,246,0.08); color: var(--blue-x); border-color: rgba(59,130,246,0.3); }
+
+      /* Progress bar */
+      .prog-x { height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+      .prog-fill-neon { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--neon2), var(--neon)); box-shadow: 0 0 8px rgba(0,255,200,0.4); transition: width 1.2s ease; }
+      .prog-fill-gold  { height: 100%; border-radius: 2px; background: linear-gradient(90deg, #d4a01a, var(--gold2)); box-shadow: 0 0 8px rgba(245,200,66,0.4); transition: width 1.2s ease; }
+      .prog-fill-red   { height: 100%; border-radius: 2px; background: linear-gradient(90deg, #c41e3a, #f43f5e); box-shadow: 0 0 8px rgba(244,63,94,0.4); transition: width 1.2s ease; }
+      .prog-fill-purple{ height: 100%; border-radius: 2px; background: linear-gradient(90deg, #7c3aed, var(--purple)); box-shadow: 0 0 8px rgba(168,85,247,0.4); transition: width 1.2s ease; }
+
+      /* Separator */
+      .sep-x { height: 1px; background: linear-gradient(90deg, transparent, var(--border-x), transparent); }
+
+      /* Section header */
+      .section-x {
+        font-family: var(--font-head); font-size: 10px; font-weight: 700;
+        letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-3);
+        display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+      }
+      .section-x::after { content: ''; flex: 1; height: 1px; background: var(--border-2); }
+
+      /* Mono value */
+      .mono { font-family: var(--font-mono); }
+
+      /* Pulse animations */
+      @keyframes pulseNeon  { 0%,100%{opacity:.6} 50%{opacity:1} }
+      @keyframes pulseGold  { 0%,100%{opacity:.5} 50%{opacity:1} }
+      @keyframes floatUp    { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-4px)} }
+      @keyframes scanLine   { 0%{top:-100%} 100%{top:200%} }
+      @keyframes orbitSpin  { 0%{transform:rotate(0deg)} 100%{transform:rotate(360deg)} }
+      @keyframes fadeSlideUp{ from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+      @keyframes blink      { 0%,100%{opacity:1} 49%{opacity:1} 50%{opacity:0} 99%{opacity:0} }
+      @keyframes shimmer    { 0%{background-position:-200% 0} 100%{background-position:200% 0} }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
