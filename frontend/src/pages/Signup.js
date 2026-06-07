@@ -24,7 +24,7 @@ const Signup = () => {
     if(form.password!==form.confirmPassword){ setError('Passwords do not match.'); return; }
     setLoading(true); setError('');
     try {
-      const { data } = await api.post('/auth/signup',{ name:form.name.trim(), email:form.email.trim(), phone:form.phone.trim(), password:form.password, preferredLanguage:form.preferredLanguage });
+      const { data } = await api.post('/api/auth/signup',{ name:form.name.trim(), email:form.email.trim(), phone:form.phone.trim(), password:form.password, preferredLanguage:form.preferredLanguage });
       if(data.success){ login(data.user,data.token); navigate('/dashboard',{replace:true}); }
       else setError(data.message||'Signup failed.');
     } catch(err) {
