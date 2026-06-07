@@ -66,7 +66,7 @@ const Login = () => {
     if (!form.email.trim() || !form.password.trim()) { setError('Both fields required.'); return; }
     setLoading(true); setError('');
     try {
-      const { data } = await api.post('/auth/login', { email: form.email.trim(), password: form.password });
+      const { data } = await api.post('/api/auth/login', { email: form.email.trim(), password: form.password });
       if (data.success) { login(data.user, data.token); navigate('/dashboard', { replace:true }); }
       else setError(data.message || 'Login failed.');
     } catch (err) {
