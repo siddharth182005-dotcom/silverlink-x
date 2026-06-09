@@ -1,118 +1,455 @@
-# SilverLink X — Eight-Pillar Empathic Banking Platform
+# 🚀 SilverLink X – AI-Powered Multilingual Banking Assistant
 
-Full-stack, production-ready, multilingual, voice-enabled, emotion-adaptive banking system  
-implementing all 8 pillars from the SilverLink X platform specification.
+<p align="center">
+  <img src="https://img.shields.io/badge/AI-Powered%20Banking-00FFC6?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/React.js-Frontend-61DAFB?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Node.js-Backend-339933?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" />
+</p>
+
+<p align="center">
+  <b>Smarter • Safer • Simpler Banking Through AI</b>
+</p>
+
+<p align="center">
+  <a href="https://silverlink-x-1.onrender.com">
+    <img src="https://img.shields.io/badge/🚀%20Live%20Demo-Visit%20SilverLink%20X-00FFC6?style=for-the-badge" />
+  </a>
+</p>
 
 ---
 
-## Eight Pillars Implemented
+# 🌐 Live Demo
 
-| # | Pillar | Status | Where |
-|---|--------|--------|-------|
-| 01 CORE  | AGI Financial Assistant (Meera) | ✅ Full | Chat tab · `/api/chat` |
-| 02 SENSE | Emotional AI Engine | ✅ Full | EmotionBadge · chatController · emotionUtils |
-| 03 PREDICT | Predictive Finance Intelligence | ✅ Full | Forecast tab · `/api/banking/predict/cashflow` |
-| 04 REACH | Multilingual Conversational Banking | ✅ Full | 6 languages · voice STT/TTS |
-| 05 SHIELD | Real-Time AI Fraud Detection | ✅ Full | Security tab · `/api/banking/fraud/alerts` |
-| 06 ACT | Autonomous Financial Insights | ✅ Full | Insights tab · `/api/banking/insights` |
-| 07 SURFACE | Antigravity UI | ✅ Full | 6-tab bottom nav · animated components |
-| 08 OPTIMIZE | Smart Budgeting & Recommendations | ✅ Full | Budget tab · `/api/banking/budgets` + `/goals` |
+### 🔗 https://silverlink-x-1.onrender.com
+
+Experience the complete AI-powered banking platform online.
 
 ---
 
-## Quick Start
+# 📖 Overview
 
-```bash
-# Terminal 1 — Backend
-cd backend && npm install && npm start
-# API at http://localhost:5000  ·  Health: http://localhost:5000/health
+SilverLink X is an AI-powered multilingual digital banking platform designed to transform the way users interact with banking services.
 
-# Terminal 2 — Frontend
-cd frontend && npm install && npm start
-# App at http://localhost:3000
+At the core of the platform is **MEERA AI**, an intelligent banking assistant that provides conversational banking support through voice and text interactions. The platform combines banking assistance, budgeting tools, savings goals, fraud awareness, financial insights, and multilingual accessibility into one seamless experience.
+
+SilverLink X focuses on making banking:
+
+✅ Easier
+
+✅ Smarter
+
+✅ More Accessible
+
+✅ More Personalized
+
+---
+
+# ✨ Features
+
+## 🤖 MEERA AI Banking Assistant
+
+MEERA AI provides:
+
+- Conversational Banking Support
+- Financial Guidance
+- Banking FAQs
+- Fund Transfer Assistance
+- Savings Recommendations
+- Personalized User Interactions
+- Real-Time Banking Help
+
+---
+
+## 🌍 Multilingual Support
+
+MEERA AI supports:
+
+- 🇬🇧 English
+- 🇮🇳 Hindi
+- 🇮🇳 Tamil
+- 🇮🇳 Telugu
+- 🇮🇳 Bengali
+- 🇮🇳 Marathi
+
+Making digital banking accessible to a wider audience.
+
+---
+
+## 🎙️ Voice & Text Banking
+
+Interact using:
+
+- Voice Commands
+- Text Chat
+- Wake Word Activation
+
+Example:
+
+```text
+Hey SilverLink
 ```
 
-## Demo Accounts  (password: `password123`)
-
-| Name | Email | Language | Has Fraud Alert |
-|------|-------|----------|----------------|
-| Ramesh Sharma | ramesh@silverlink.com | Hindi | ✅ Yes |
-| Sunita Devi | sunita@silverlink.com | English | No |
-| Arjun Pillai | arjun@silverlink.com | Tamil | No |
+The assistant activates and begins listening.
 
 ---
 
-## All API Endpoints
+## 💰 Smart Budget Management
 
-| Method | Path | Auth | Pillar | Description |
-|--------|------|------|--------|-------------|
-| POST | `/api/auth/signup` | No | — | Register |
-| POST | `/api/auth/login` | No | — | Login → JWT |
-| GET | `/api/auth/profile` | Yes | — | Profile |
-| GET | `/api/banking/balance` | Yes | 01 | Balance |
-| GET | `/api/banking/transactions` | Yes | 01 | Transactions |
-| POST | `/api/banking/transfer` | Yes | 01 | Transfer funds |
-| GET | `/api/banking/fraud/alerts` | Yes | 05 | Fraud alerts + risk scores |
-| PATCH | `/api/banking/fraud/:id/resolve` | Yes | 05 | Resolve alert |
-| GET | `/api/banking/predict/cashflow` | Yes | 03 | 90-day forecast |
-| GET | `/api/banking/budgets` | Yes | 08 | Budget list |
-| POST | `/api/banking/budgets` | Yes | 08 | Create/update budget |
-| GET | `/api/banking/goals` | Yes | 08 | Savings goals |
-| POST | `/api/banking/goals` | Yes | 08 | Create goal |
-| PATCH | `/api/banking/goals/:id` | Yes | 08 | Add to goal |
-| GET | `/api/banking/insights` | Yes | 06 | AI insights |
-| POST | `/api/chat` | Yes | 01,02,04 | AI chat (Meera) |
-| GET | `/api/chat/history` | Yes | 01 | Chat history |
-| DELETE | `/api/chat/history` | Yes | 01 | Clear history |
-| GET | `/health` | No | — | Health check |
+Track and manage finances using:
+
+- Budget Dashboard
+- Spending Analysis
+- Savings Tracking
+- Financial Planning Tools
+
+Features include:
+
+- Budget Monitoring
+- Spending Insights
+- Savings Recommendations
+- Financial Goal Tracking
 
 ---
 
-## New Components (v3)
+## 🎯 Goal-Based Savings Engine
 
-| File | Pillar | Description |
-|------|--------|-------------|
-| `FraudPanel.js` | 05 SHIELD | Security score ring, flagged transactions, resolve alerts |
-| `PredictivePanel.js` | 03 PREDICT | 90-day forecast bars, 3-month table, risk indicator |
-| `BudgetGoalsPanel.js` | 08 OPTIMIZE | Budget bars, savings goals, top-up modal |
-| `InsightsPanel.js` | 06 ACT | AI recommendations sorted by urgency/priority |
+Create and track goals such as:
 
----
+- Emergency Fund
+- New Laptop
+- Education Fund
+- Travel Goals
+- Vehicle Purchase
 
-## Dashboard Navigation (6 tabs)
+Each goal displays:
 
-```
-💬 Chat     — Meera AI (Pillar 01, 02, 04)
-🏦 Account  — Balance, transactions, profile
-🤖 Insights — Autonomous recommendations (Pillar 06)
-📈 Forecast — 90-day cash flow prediction (Pillar 03)
-🎯 Budget   — Budgets + savings goals (Pillar 08)
-🛡️ Security — Fraud detection + scores (Pillar 05)
-```
+- Current Savings
+- Target Amount
+- Completion Percentage
+- Remaining Amount
 
 ---
 
-## Bug Fixes from v2 (all retained)
+## 📊 Financial Insights
 
-1. CORS preflight blocked login → fixed `server.js`  
-2. JWT secret mismatch → consistent fallback in controller + middleware  
-3. Absolute `baseURL` bypassed CRA proxy → changed to relative `/api`  
-4. 401 redirect loop on wrong password → skip redirect on auth routes  
-5. localStorage written after setState → write first, then setState  
-6. `isAuthenticated` checked only `!!token` → requires `!!token && !!user`  
-7. `loading` flag not awaited → Protected shows Loader during hydration  
-8. Public component returned null during loading → returns Loader  
-9. `navigate()` called before state settled → localStorage-first pattern  
-10. Voice mic stale closure → `voiceStateRef` tracks current state  
-11. Chat error message swallowed → surfaces `err.response?.data?.message`
+Users can view:
+
+- Spending Patterns
+- Savings Habits
+- Budget Utilization
+- Goal Completion Progress
+- Financial Growth Trends
 
 ---
+
+## 🔒 Security & Fraud Awareness
+
+Security-focused features:
+
+- Fraud Alerts
+- Risk Notifications
+- Session Monitoring
+- Security Awareness Tools
+
+---
+
+## 💳 Banking Services
+
+MEERA AI assists users with:
+
+- Account Balance
+- Recent Transactions
+- Fund Transfers
+- Security Queries
+- Banking Information
+- Financial Questions
+
+---
+
+# 🏆 Key Highlights
+
+### 🚀 AI-Powered Banking
+
+Combines modern banking with conversational AI.
+
+### 🌍 Financial Inclusion
+
+Supports multiple Indian languages.
+
+### 🎙️ Voice Interaction
+
+Natural voice-enabled banking support.
+
+### 💰 Smart Budgeting
+
+Helps users manage finances effectively.
+
+### 🎯 Savings Goals
+
+Encourages better financial planning.
+
+### 🔒 Security Awareness
+
+Promotes safer digital banking practices.
+
+### 🎨 Modern UI/UX
+
+Cyberpunk-inspired futuristic design.
+
+---
+
+# 🖼️ Screenshots
+
+## AI Banking Assistant
+
+- Real-time AI conversations
+- Multilingual support
+- Voice interaction
+- Banking guidance
+
+## Budget Dashboard
+
+- Goal tracking
+- Savings monitoring
+- Financial planning
+
+## Security Monitoring
+
+- Fraud alerts
+- Session awareness
+- Risk notifications
+
+---
+
+# 🛠️ Tech Stack
+
+## Frontend
+
+- React.js
+- React Router
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+
+## Backend
+
+- Node.js
+- Express.js
+
+## AI Features
+
+- Conversational AI
+- Natural Language Processing
+- Voice Interaction
+- Multilingual Response System
 
 ## Deployment
 
-**Backend** (Render / Railway):  
-Set env: `JWT_SECRET=<strong>`, `PORT=5000`, `JWT_EXPIRES_IN=7d`
+- Render
 
-**Frontend** (Vercel / Netlify):  
-Set env: `REACT_APP_API_URL=https://your-backend.onrender.com/api`  
-Build: `npm run build` → deploy `build/`
+---
+
+# 📂 Project Structure
+
+```bash
+SilverLink-X
+│
+├── frontend
+│   ├── public
+│   ├── src
+│   │   ├── components
+│   │   ├── pages
+│   │   ├── context
+│   │   ├── hooks
+│   │   ├── services
+│   │   └── assets
+│   └── package.json
+│
+├── backend
+│   ├── routes
+│   ├── controllers
+│   ├── middleware
+│   ├── services
+│   ├── utils
+│   └── server.js
+│
+└── README.md
+```
+
+---
+
+# ⚙️ Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/your-username/SilverLink-X.git
+cd SilverLink-X
+```
+
+---
+
+## Backend Setup
+
+```bash
+cd backend
+npm install
+npm start
+```
+
+Backend:
+
+```text
+http://localhost:5000
+```
+
+---
+
+## Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+Frontend:
+
+```text
+http://localhost:3000
+```
+
+---
+
+# 🚀 Usage
+
+Start the application:
+
+```bash
+npm install
+npm start
+```
+
+Open:
+
+```text
+http://localhost:3000
+```
+
+Try asking:
+
+```text
+Show my account balance
+
+Recent transactions
+
+Transfer money
+
+Help me save for a laptop
+
+Show my financial goals
+
+Explain my spending habits
+```
+
+---
+
+# 🎯 Problem Statement
+
+Traditional banking applications often:
+
+- Have complex interfaces
+- Lack multilingual accessibility
+- Provide limited guidance
+- Do not support conversational interactions
+
+SilverLink X solves these challenges by offering:
+
+✅ AI Banking Assistant
+
+✅ Voice Interaction
+
+✅ Multilingual Support
+
+✅ Smart Budgeting
+
+✅ Goal-Based Savings
+
+✅ Financial Insights
+
+✅ Security Awareness
+
+---
+
+# 🔮 Future Enhancements
+
+- UPI Integration
+- Real Banking APIs
+- AI Financial Advisor
+- Expense Prediction
+- Investment Recommendations
+- Credit Score Analysis
+- AI Fraud Detection
+- Voice Biometrics
+- Wealth Management Tools
+
+---
+
+# 🏅 Hackathon Value
+
+### Innovation
+
+AI-powered multilingual banking assistant.
+
+### Accessibility
+
+Designed for diverse users across languages.
+
+### Financial Awareness
+
+Encourages better financial decision-making.
+
+### User Experience
+
+Modern AI-first banking experience.
+
+### Real-World Impact
+
+Improves accessibility, financial literacy, and digital banking engagement.
+
+---
+
+# 👨‍💻 Team SilverLink
+
+Built with a vision to make banking:
+
+# Smarter • Safer • Simpler
+
+through Artificial Intelligence.
+
+---
+
+# 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+# ⭐ Support
+
+If you found this project useful:
+
+⭐ Star the Repository
+
+🍴 Fork the Project
+
+🚀 Share with Others
+
+---
+
+# 🌐 Live Demo
+
+### https://silverlink-x-1.onrender.com
+
+## SilverLink X — Your AI Banking Companion 🤖🏦💙
